@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Aug 23 22:21:59 2021
-
-@author: Dennis
-"""
 
 # IG webcrawler
 
@@ -32,7 +26,6 @@ first = 50  # 最大可回傳50組資料(50篇)
 # login_url = "https://www.instagram.com"
 url = 'https://www.instagram.com/graphql/query/?query_hash=8c2a529969ee035a5063f2fc8602a0fd&variables={"id":"' + sid + '","first":' + str(first) +'}'
 
-
 def login(url):
     driver.get(url)
     
@@ -46,6 +39,7 @@ def login(url):
     
     login = driver.find_element_by_xpath('//*[@id="loginForm"]/div/div[3]')
     
+    # time.sleep避免被當成機器人
     username.clear()
     time.sleep(3)
     password.clear()
@@ -217,7 +211,7 @@ def saveImages(account):
         wget.download(video, save_as)
         img_count += 1
 
-# === 程式進入點 ===
+# === 程式開始 ===
 login(url)
 loadPage(url)
 # total_count = getTotalCount()
